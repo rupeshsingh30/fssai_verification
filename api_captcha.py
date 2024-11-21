@@ -19,6 +19,8 @@ from paddleocr import PaddleOCR
 import base64
 import requests,json
 
+import config 
+
 def image_to_base64(image_path):
     try:
         with open(image_path, "rb") as image_file:
@@ -78,7 +80,7 @@ def get_captcha1(driver,ss_path):
     ele = driver.find_element(By.XPATH, value='//*[@id="content"]/div[1]/div/div[1]/div/div/form/div[8]/div/div[1]/p/img')  
     ele.screenshot(ss_path)
 
-    url = "https://sequelpythonapps.azurewebsites.net/api/captcha/d?code=mu3llrtj1HD2J4GjFvW3f5Tcgnv-cNEXVOKsDOOp0AzXAzFuvXOuYQ=="
+    url = config.url_for_captcha
 
     base64str = image_to_base64(ss_path)
     
