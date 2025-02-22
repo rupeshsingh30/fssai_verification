@@ -1,0 +1,1 @@
+hello brother this is my first flask app with static file 
